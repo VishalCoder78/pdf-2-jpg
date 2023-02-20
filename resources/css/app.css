@@ -1,0 +1,8 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.btn{
+    padding-left:11px ;
+    padding-right:10.5px ;
+}
