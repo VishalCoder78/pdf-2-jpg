@@ -8,6 +8,7 @@ use Imagick;
 
 class ImageController extends Controller
 {
+    private $filename;
     public function index(request $request)
     {
         $imagick = new \Imagick();
@@ -22,21 +23,28 @@ class ImageController extends Controller
 
         //   header('Content-Type: image/jpg');
         $imgBlob = $imagick->getImageBlob();
-        $filename = time() . "-" . rand(1, 1000000);
-        Storage::disk('local')->put('public/' . $filename . '.png', $imgBlob);
+        $this->filename = time() . "-" . rand(1, 1000000);
+        Storage::disk('local')->put('public/' . $this->filename . '.png', $imgBlob);
 
         // $echo = "Hello World from Controller";
-        $data = array('echo' => $filename);
+        $data = array('echo' => $this->filename);
         return view('image')->with($data);
-
-        return response()->streamDownload(function () {
-            echo file_get_contents('http://localhost:8000/storage/'.$filename.'.png');
-        }, ".$filename.'.jpg'");
-
-        // echo 'Converted! <hr/> <a  href="/storage/'.$filename.'.png" target="_blank" download >Download your image</a> <img src="/storage/'.$filename.'.png" alt="image">';
-
+    }
+    public function down(request $request)
+    {
+        return view($this->filename);
+        
     }
 
+// return view("storage/".$filename.".png", compact('filename'));
+
+// $file= public_path(). '/storage/'.$filename.'.png';
+
+// $headers = array(
+//           'Content-Type: application/pdf',
+//         );
+
+// return Response::download($file, 'filename.pdf', $headers);
 
 
 }

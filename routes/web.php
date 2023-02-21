@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\downloadController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ImageController;
 use Illuminate\Http\Request;
@@ -25,4 +26,9 @@ Route::get('/convert', function() {
 
 Route::post('/convert', [ImageController::class, "index"]);
 Route::get('/image', [ImageController::class, "index"]);
-Route::get('/download', [ImageController::class, "index"]);
+Route::get('/download', [ImageController::class,"down"]);
+// Route::get('/down', [ImageController::class, "index"]);
+// Route::get('/storage/{filename}.png', [downloadController::class,"downl"]);
+Route::get('/documemt', function () {
+    return Storage::download('null.png');
+});
