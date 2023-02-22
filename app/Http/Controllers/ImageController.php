@@ -8,7 +8,7 @@ use Imagick;
 
 class ImageController extends Controller
 {
-    private $filename;
+    // private $filename;
     public function index(request $request)
     {
         $imagick = new \Imagick();
@@ -23,18 +23,18 @@ class ImageController extends Controller
 
         //   header('Content-Type: image/jpg');
         $imgBlob = $imagick->getImageBlob();
-        $this->filename = time() . "-" . rand(1, 1000000);
-        Storage::disk('local')->put('public/' . $this->filename . '.png', $imgBlob);
+        $filename = time() . "-" . rand(1, 1000000);
+        Storage::disk('local')->put('public/' . $filename . '.png', $imgBlob);
 
         // $echo = "Hello World from Controller";
-        $data = array('echo' => $this->filename);
+        $data = array('echo' => $filename);
         return view('image')->with($data);
     }
-    public function down(request $request)
-    {
-        return view($this->filename);
+    // public function down(request $request)
+    // {
+    //     return view($this->filename);
         
-    }
+    // }
 
 // return view("storage/".$filename.".png", compact('filename'));
 
