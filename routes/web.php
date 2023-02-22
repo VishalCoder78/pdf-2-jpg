@@ -26,7 +26,7 @@ Route::get('/convert', function() {
 
 Route::post('/convert', [ImageController::class, "index"]);
 Route::get('/image', [ImageController::class, "index"]);
-Route::get('/download', [ImageController::class,"down"]);
+Route::get('/download/{filename}.png', [ImageController::class,"down"]);
 // Route::get('/down', [ImageController::class, "index"]);
 // Route::get('/storage/{filename}.png', [downloadController::class,"downl"]);
 

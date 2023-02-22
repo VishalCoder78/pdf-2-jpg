@@ -12,7 +12,7 @@
     <div class="flex items-center justify-center h-screen">
                 <div class="flex-row items-center justify-center h-52 w-36 " >
             <img src="/storage/<?php echo $echo ?>.png" alt="image" class="h-44 w-36">
-            <a href="/storage/<?php echo $echo ?>.png" class="btn bg-indigo-600 hover:bg-indigo-800 text-white pt-1 pb-2.5">Download Image</a>
+            <a href="/download/<?php echo $echo ?>.png" class="btn bg-indigo-600 hover:bg-indigo-800 text-white pt-1 pb-2.5">Download Image</a>
         </div>
         <a  href="/storage/<?php echo $echo ?>.png"  target="blank" download  class="btn bg-green-500 hover:bg-green-600 pt-1 pb-2.5">Download image</a>
     

@@ -12,7 +12,7 @@
 <body>
     <div class="h-screen flex items-center justify-center bg-slate-800">
         <a href="/convert" class="px-12 py-2 my-5 bg-indigo-600 hover:bg-indigo-800 text-white mx-5 ">Convert</a>
-        <a href="/image" class="px-12 py-2 my-5 bg-indigo-600 hover:bg-indigo-800 text-white">Image</a>
+        {{-- <a href="/image" class="px-12 py-2 my-5 bg-indigo-600 hover:bg-indigo-800 text-white">Image</a> --}}
     </div>
 </body>
 

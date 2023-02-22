@@ -30,11 +30,12 @@ class ImageController extends Controller
         $data = array('echo' => $filename);
         return view('image')->with($data);
     }
-    // public function down(request $request)
-    // {
-    //     return view($this->filename);
+    public function down($filename)
+    {
+        $filepath = public_path("storage/{$filename}.png");
+        return \Response::download($filepath);
         
-    // }
+    }
 
 // return view("storage/".$filename.".png", compact('filename'));
 
